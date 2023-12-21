@@ -9,6 +9,7 @@ from .models import Customer
 
 
 class ProductSearchForm(forms.Form):
+    # erdrfdtf
     q = forms.CharField(label='Search', max_length=100)
 
 
