@@ -1,0 +1,35 @@
+{% extends 'app/base.html' %}
+{% load static %}
+{% block title %}Buy Now{% endblock title %}
+{% block main-content %}
+<div class="container my-5">
+ <div class="row">
+  <div class="col-sm-3">
+    <div class ="list-group">
+    <a href = "{% url 'spiritualbooks' %}" class = "list-group-item list-group-item-action" aria-current = "true">ALL SPIRITUAL BOOKS</a>
+
+  <a href = "{% url 'spiritualdata' 'below' %}"class = "list-group-item list-group-item-action">Below 300</a>
+  <a href = "{% url 'spiritualdata' 'above' %}"class = "list-group-item list-group-item-action" >Above 300</a>
+  </div>
+ </div>
+</div class = "col-sm-8">
+ <div class ="row">
+   {% for sb  in sbooks %}
+    <div class = "col-sm-4 text-center mb-4">
+       <a href = "{% url 'product-detail' sb.id %}" class = "btn">
+         <div class = "item">
+           <img src = "{{sb.product_image.url}}" alt="" height="300" class = "">
+           <div class = "fw-bold">Rs.{{sb.discounted_price}}
+           <small class = "fw-light text-decoration-line-through">{{sb.selling_price}}
+           </small><div>
+           </div>
+           </a>
+           </div>
+           {% endfor %}
+           </div>
+           </div>
+           </div>
+           </div>
+           
+
+{% endblock main-content %}   
